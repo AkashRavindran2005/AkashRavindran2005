@@ -290,6 +290,7 @@ list=[23,1,31,106,3]
 #             r.append(no)
 #         mat.append(r)
 #     return mat
+# x=matrix()
 # def check1(x):
 #     r=[]
 #     for i in range(len(x)):
@@ -298,7 +299,8 @@ list=[23,1,31,106,3]
 #             if x[i][j]==1:
 #                 no_of1+=1
 #         r.append(no_of1)
-#     print('no of ones',max(r))
+#     print('no of ones',max(r),'is in',r.index(max(r))+1,'nth line')
+# check1(x)
 # def unique(x):
 #     r=[]
 #     for i in range(len(x)):
@@ -382,5 +384,89 @@ list=[23,1,31,106,3]
 #         except EOFError:
 #             print('')
 
+# with open('story.txt','w') as f:
+#     while True:
+#         x=eval(input("Enter a line as list: "))
+#         f.writelines(x)
+#         ch=input('Enter "y" to continue: ')
+#         if ch!='y':
+#             break
+# with open('story.txt','r') as f:
+#     flag=0
+#     r=f.readlines()
+#     a=0
+#     d=0
+#     s=0
+#     for i in range(len(r)):
+#         for j in r:
+#             for k in x[i]:
+#                 for l in j:
+#                     if l.isalpha():
+#                         print('No. of alphabet in',i+1,'th line is',j.count(k))
 
+# x=100 or 200
+# p)
+# rint(x
+# s=[]
+# def isempty(s):
+#     if s==[]:
+#         return True
+#     else:
+#         return False
+# def push(s,year):
+#     s.append(year)
+# def pop(s):
+#     if isempty(s):
+#         print("Underflow")
+#     else:
+#         x=len(s)-1
+#         while x>=0:
+#             print(s.pop(x))
+#             x=x-1
+#
+# while True:
+#     print('1.push')
+#     print('2.pop')
+#     ch=int(input('Enter choice'))
+#     if ch==1:
+#         year=int(input('Enter year'))
+#         push(s,year)
+#     elif ch==2:
+#         pop(s)
+#     else:
+#         break
+# print(u'\u20B9')
 
+# T = eval(input('Enter tuple: '))
+# r = []
+# for i in T:
+#     r.append(len(i))
+# print(tuple(r))
+#l = []
+
+# while True:
+#     date = input('enter: ')
+#     def append(l,date):
+#         global no
+#         for i in l:
+#             if i == date:
+#                 no += 1
+#             elif i != date:
+#                 no = 0
+#         return no
+#     l.append(date)
+#     ch=input("Enter: ")
+#     if ch=='y':
+#         no=0
+#         print(append(l,date))
+#     else:
+#         break
+
+l=[1,2]
+m=[3,4]
+n=[5,6]
+o=[]
+o.extend(l)
+o.extend(m)
+o.extend(n)
+print(o)
