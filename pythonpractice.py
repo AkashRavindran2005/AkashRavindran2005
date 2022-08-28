@@ -462,11 +462,12 @@ list=[23,1,31,106,3]
 #     else:
 #         break
 
-l=[1,2]
-m=[3,4]
-n=[5,6]
-o=[]
-o.extend(l)
-o.extend(m)
-o.extend(n)
-print(o)
+# l=[1,2]
+# m=[3,4]
+# n=[5,6]
+# o=[]
+# o.extend(l)
+# o.extend(m)
+# o.extend(n)
+# print(o)
+

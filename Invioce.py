@@ -2,7 +2,7 @@ import csv
 no = 1
 l = []
 sep = []
-gt = None
+gt1 = None
 
 
 def bill():
@@ -43,7 +43,7 @@ def bill():
                 bill = [sno, product, quantity, price, total]
                 sno += 1
                 r.writerow(bill)
-                ch = input('Do you want to continue (Y/N)').lower()
+                ch = input('Next Product? (Y/N)').lower()
                 if ch == 'n':
                     break
             gt1 = (2/100)*gt + gt
@@ -61,7 +61,7 @@ def bill():
             r.writerows(s)
             r.writerow([])
         l.append([today, invoice, product, quantity, gt1])
-        ch1 = input('Next customer (Y/N)').lower()
+        ch1 = input('Next customer? (Y/N)').lower()
         if ch1 == 'y':
             no += 1
         elif ch1 == 'n':
@@ -74,9 +74,9 @@ def between(l):
     inv = ''
     pro = ''
     for i in l:
-        date += i[0] + ',' + ' '
-        inv += i[1] + ',' + ' '
-        pro += i[2] + ',' + ' '
+        date += i[0] + ' '
+        inv += i[1] + ' '
+        pro += i[2] + ' '
         sum += i[4]
     print('Dates: ', date)
     print('Invoice no: ', inv)
