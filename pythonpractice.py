@@ -471,3 +471,43 @@ list=[23,1,31,106,3]
 # o.extend(n)
 # print(o)
 
+# import csv
+# def check():
+#     with open('notes1.csv','w',newline='') as f1:
+#         with open('notes.csv', 'r', newline='') as f:
+#             sr = csv.reader(f)
+#             sw=csv.writer(f1)
+#             for i in sr:
+#                 if i[0][:5] != 'check':
+#                     sw.writerow(i)
+# check()
+#
+# for i in range(1,100):
+#     if 10 <= i < 100:
+#         print(i)
+
+# d = [["Mark", 12, 95],
+#      ["Jay", 11, 88],
+#      ["Jack", 14, 90]]
+#
+# print("{:<8} {:<8} {:<8}".format('Name', 'Age', 'Percent'))
+#
+# for v in d:
+#     name, age, perc = v
+#     print("{:<8} {:<8} {:<8}".format(name, age, perc))
+#
+# header = [re.sub(' +',' ',i[0][:-1].replace('\n', ' ')) for i in optionsTable[0]]
+#
+# with open('test.csv', 'w') as fp:
+#    writer = csv.writer(fp, delimiter=',')
+#    writer.writerow(header)
+#    for row in optionsTable:
+#       writer.writerow([i[1] for i in row])
+import pickle
+with open('products.dat', 'rb+') as f1:
+    try:
+        while True:
+            x = pickle.load(f1)
+            print(x)
+    except EOFError:
+        print('')
