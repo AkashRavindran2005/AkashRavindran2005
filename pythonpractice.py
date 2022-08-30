@@ -503,11 +503,47 @@ list=[23,1,31,106,3]
 #    writer.writerow(header)
 #    for row in optionsTable:
 #       writer.writerow([i[1] for i in row])
-import pickle
-with open('products.dat', 'rb+') as f1:
-    try:
-        while True:
-            x = pickle.load(f1)
-            print(x)
-    except EOFError:
-        print('')
+# import pickle
+# with open('products.dat', 'rb+') as f1:
+#     try:
+#         while True:
+#             x = pickle.load(f1)
+#             print(x)
+#     except EOFError:
+#         print('')
+import csv
+with open('products.csv', 'r', newline='') as f1:
+    reader = csv.reader(f1)
+    print('{:<60} {:<5}'.format('Products', 'Stocks'))
+    found = 0
+    n = []
+    for i in reader:
+        print('{:<60} {:<5}'.format(i[0], i[1]))
+        key = i
+
+
+    def check(product, reader, quantity):
+        global found
+        global n
+        f1.seek(0)
+        for rec in reader:
+            if rec[0].lower() == product.lower():
+                rec[1] = str(int(rec[1]) - quantity)
+                found = 1
+                n.append(rec)
+                return True
+            else:
+                return False
+
+
+    product = input('Enter Product name: ')
+    quantity = int(input("Enter quantity: "))
+    for rec in range(len(reader)):
+        print(rec)
+        if reader[rec][0].lower() == product.lower():
+            rec[1] = str(int(rec[1]) - quantity)
+            found = 1
+            n.append(rec)
+            print(n)
+    if found == 0:
+        print('not found')
