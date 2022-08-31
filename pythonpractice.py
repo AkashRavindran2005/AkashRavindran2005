@@ -511,39 +511,72 @@ list=[23,1,31,106,3]
 #             print(x)
 #     except EOFError:
 #         print('')
-import csv
-with open('products.csv', 'r', newline='') as f1:
-    reader = csv.reader(f1)
-    print('{:<60} {:<5}'.format('Products', 'Stocks'))
-    found = 0
-    n = []
-    for i in reader:
-        print('{:<60} {:<5}'.format(i[0], i[1]))
-        key = i
+# import csv
+# with open('products.csv', 'r', newline='') as f1:
+#     reader = csv.reader(f1)
+#     print('{:<60} {:<5}'.format('Products', 'Stocks'))
+#     found = 0
+#     n = []
+#     for i in reader:
+#         print('{:<60} {:<5}'.format(i[0], i[1]))
+#         key = i
 
 
-    def check(product, reader, quantity):
-        global found
-        global n
-        f1.seek(0)
-        for rec in reader:
-            if rec[0].lower() == product.lower():
-                rec[1] = str(int(rec[1]) - quantity)
-                found = 1
-                n.append(rec)
-                return True
+#     def check(product, reader, quantity):
+#         global found
+#         global n
+#         f1.seek(0)
+#         for rec in reader:
+#             if rec[0].lower() == product.lower():
+#                 rec[1] = str(int(rec[1]) - quantity)
+#                 found = 1
+#                 n.append(rec)
+#                 return True
+#             else:
+#                 return False
+
+
+#     product = input('Enter Product name: ')
+#     quantity = int(input("Enter quantity: "))
+#     for rec in range(len(reader)):
+#         print(rec)
+#         if reader[rec][0].lower() == product.lower():
+#             rec[1] = str(int(rec[1]) - quantity)
+#             found = 1
+#             n.append(rec)
+#             print(n)
+#     if found == 0:
+#         print('not found')
+net_ammount = 2000
+number=["","One","Two","Three","Four","Five","Six","Seven","Eight","Nine"]
+nty=["","","Twenty","Thirty","Fourty","Fifty","Sixty","Seventy","Eighty","Ninty"]
+tens=["Ten","Eleven","Twelve","Thirteen","Fourteen","Fifteen","Sixteen","Seventeen","Eighteen","Nineteen"]
+if net_ammount>99999:
+    print("Cant solve for more than 5 digits")
+else:
+    d=[0,0,0,0,0]
+    i=0
+    while net_ammount>0:
+        d[i]=net_ammount%10
+        i+=1
+        num = ''
+        net_ammount=net_ammount//10
+        if d[4]!=0:
+            if(d[4]==1):
+                num+=tens[d[3]]+ " Thousand "
             else:
-                return False
-
-
-    product = input('Enter Product name: ')
-    quantity = int(input("Enter quantity: "))
-    for rec in range(len(reader)):
-        print(rec)
-        if reader[rec][0].lower() == product.lower():
-            rec[1] = str(int(rec[1]) - quantity)
-            found = 1
-            n.append(rec)
-            print(n)
-    if found == 0:
-        print('not found')
+                num+=nty[d[4]]+" "+number[d[3]]+  " Thousand "
+        else:
+            if d[3]!=0:
+                num+=number[d[3]]+ " Thousand "
+            if d[2]!=0:
+                num+=number[d[2]]+" Hundred "
+            if d[1] != 0:
+                if (d[1] == 1):
+                    num += tens[d[0]]
+                else:
+                    num += nty[d[1]] + " " + number[d[0]]
+            else:
+                if d[0] != 0:
+                    num += number[d[0]]
+print(num)
