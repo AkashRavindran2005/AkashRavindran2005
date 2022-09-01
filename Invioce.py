@@ -4,9 +4,10 @@ no = 1
 l = []
 gt1 = None
 t = []
-
+from num2words import num2words
 
 def bill():
+    global num
     global t
     global gt1
     global no
@@ -42,7 +43,11 @@ def bill():
                     print('')
                 gt = 0
                 r = csv.writer(f, delimiter = ' ')
-                t_payment = input("what kind of payment is done   ")
+                print('1. Card')
+                print('2. UPI')
+                print('3. Food')
+                print('4: Cash')
+                t_payment = input("what kind of payment is done: ")
                 if t_payment ==  "1":
                     t_payment = "card" 
                 elif t_payment == "2" :
@@ -80,7 +85,7 @@ def bill():
                     stock = 0
                     for data in n:
                         if data[1].isdigit():
-                            if int(data[1]) < quantity:
+                            if int(data[1]) <= quantity:
                                 stock = 1
                     if stock == 1:
                         print('Stockout')
@@ -98,44 +103,13 @@ def bill():
                     if ch == 'n':
                         break
                 gt1 = (2/100)*gt + gt
-            net_ammount = int(gt1)
+            net_amount = int(gt1)
             def discount():
                 global gt1
                 if gt1 > 5000:
                     gt1 = gt1 - (10 / 100) * gt1
                     return True
-
-            number=["","One","Two","Three","Four","Five","Six","Seven","Eight","Nine"]
-            nty=["","","Twenty","Thirty","Fourty","Fifty","Sixty","Seventy","Eighty","Ninty"]
-            tens=["Ten","Eleven","Twelve","Thirteen","Fourteen","Fifteen","Sixteen","Seventeen","Eighteen","Nineteen"]
-            if net_ammount>99999:
-                print("Cant solve for more than 5 digits")
-            else:
-                d=[0,0,0,0,0]
-                i=0
-                while net_ammount>0:
-                    d[i]=net_ammount%10
-                    i+=1
-                    net_ammount=net_ammount//10
-                    num=""
-                    if d[4]!=0:
-                        if(d[4]==1):
-                            num+=tens[d[3]]+ " Thousand "
-                        else:
-                            num+=nty[d[4]]+" "+number[d[3]]+  " Thousand "
-                    else:
-                        if d[3]!=0:
-                            num+=number[d[3]]+ " Thousand "
-                        if d[2]!=0:
-                            num+=number[d[2]]+" Hundred "
-                        if d[1] != 0:
-                            if (d[1] == 1):
-                                num += tens[d[0]]
-                            else:
-                                num += nty[d[1]] + " " + number[d[0]]
-                        else:
-                            if d[0] != 0:
-                                num += number[d[0]]
+            num = num2words(net_amount)
 
             sr.writerow([                    lines                                 ])
             s = [[''],
