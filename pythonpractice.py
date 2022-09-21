@@ -9,6 +9,7 @@
 #         if ch!='y':
 #             break
 #     pickle.dump(s,f)
+import csv
 import pickle
 
 # num=int(input('enter member code'))
@@ -174,6 +175,7 @@ import pickle
 #     for m in s:
 #         print('no. of',m[0],'is',m[1])
 import pickle
+
 # n=int(input('enter book id'))
 # l=[]
 # found=False
@@ -245,7 +247,6 @@ import pickle
 #     x=x-1
 
 
-list=[23,1,31,106,3]
 # n=int(input('enter no: '))
 # u=len(list)-1
 # l=0
@@ -442,7 +443,7 @@ list=[23,1,31,106,3]
 # for i in T:
 #     r.append(len(i))
 # print(tuple(r))
-#l = []
+# l = []
 
 # while True:
 #     date = input('enter: ')
@@ -511,39 +512,459 @@ list=[23,1,31,106,3]
 #             print(x)
 #     except EOFError:
 #         print('')
-import csv
-with open('products.csv', 'r', newline='') as f1:
-    reader = csv.reader(f1)
-    print('{:<60} {:<5}'.format('Products', 'Stocks'))
-    found = 0
-    n = []
-    for i in reader:
-        print('{:<60} {:<5}'.format(i[0], i[1]))
-        key = i
+# import csv
+# with open('products.csv', 'r', newline='') as f1:
+#     reader = csv.reader(f1)
+#     print('{:<60} {:<5}'.format('Products', 'Stocks'))
+#     found = 0
+#     n = []
+#     for i in reader:
+#         print('{:<60} {:<5}'.format(i[0], i[1]))
+#         key = i
+#
+#
+#     def check(product, reader, quantity):
+#         global found
+#         global n
+#         f1.seek(0)
+#         for rec in reader:
+#             if rec[0].lower() == product.lower():
+#                 rec[1] = str(int(rec[1]) - quantity)
+#                 found = 1
+#                 n.append(rec)
+#                 return True
+#             else:
+#                 return False
+#
+#
+#     product = input('Enter Product name: ')
+#     quantity = int(input("Enter quantity: "))
+#     for rec in range(len(reader)):
+#         print(rec)
+#         if reader[rec][0].lower() == product.lower():
+#             rec[1] = str(int(rec[1]) - quantity)
+#             found = 1
+#             n.append(rec)
+#             print(n)
+#     if found == 0:
+#         print('not found')
+# def matrix():
+#     m=int(input('enter row: '))
+#     n=int(input('enter columns: '))
+#     mat=[]
+#     for i in range(m):
+#         r=[]
+#         for j in range(n):
+#             no=int(input("enter element: "))
+#             r.append(no)
+#         mat.append(r)
+# def check1(x):
+#     r=[]
+#     for i in range(len(x)):
+#         no_of1 = 0
+#         for j in range(len(x[0])):
+#             if x[i][j] == 1:
+#                 no_of1 += 1
+#         r.append(no_of1)
+#     print('no of ones',max(r),'is in',r.index(max(r))+1,'nth line')
+# x = matrix()
+# check1(x)
 
+# #fibonacci
+# n=int(input('enter no: '))
+# a,b = 0,1
+# if n==1:
+#     print(0)
+# elif n == 2:
+#     print(a,b)
+# elif n>=3:
+#     print(a,b,end=' ')
+#     for i in range(3,n+1):
+#         c = a+b
+#         print(c,end=' ')
+#         a,b = b,c
+# n = int(input('which no u want to multiply: '))
+# m = int(input('how many number u want to multiply: '))
+# for i in range(m+1):
+#     print(n,'x',i,'=',n*i)
 
-    def check(product, reader, quantity):
-        global found
-        global n
-        f1.seek(0)
-        for rec in reader:
-            if rec[0].lower() == product.lower():
-                rec[1] = str(int(rec[1]) - quantity)
-                found = 1
-                n.append(rec)
-                return True
-            else:
-                return False
+# n = int(input('Enter no: '))
+# for i in range(2,n):
+#     if n%i == 0:
+#         print('composite no')
+#         break
+# else:
+#     print('prime no')
 
+# n = int(input('Enter no: '))
+# fact = 1
+# if n == 0:
+#     print(1)
+# else:
+#     for i in range(1,n+1):
+#         fact = fact*i
+# print(fact)
+# l=[]
+# for i in range(1,11):
+#     l.append(i)
+# top = len(l)-1
+# while top >= 0:
+#     print(l[top])
+#     top = top -1
+# n =int(input('Enter no: '))
+# num = 0
+# while n>0:
+#     digit = n%10
+#     num += digit**3
+#     n = n//10
+# if num == n:
+#     print('armstrong no')
+# else:
+#     print('no armstrong no')
+# l = eval(input('enter:'))
+# num = l[0]
+# for i in l:
+#     if i > num:
+#         num = i
+# print(num)
+# list=['p','r','o','b','l','e','m']
+# list[1:3] = []
+# print(list)
+# list[2:5] = []
+# print(list)
+# l1=[13,18,11,16,13,18,13]
+# print(l1.index(18))
+# print(l1.count(18))
+# l1.append(l1.count(13))
+# print(l1)
+# l = eval(input('Enter: '))
+# for i in l:
+#     num = 1
+#     for j in range(1,i+1):
+#         num = num*j
+# #     print(num)
+# TupleA='m','n'
+# TupleB=('m', 'n')
+# print(TupleA==TupleB)
+# n = int(input("enter a number"))
+# re = 0
+# while n>0:
+#     r=n%10
+#     re=re*10+r
+#     n//=10
+# print("Reversed Number: ",re)
+# with open('stu.txt','r') as f:
+#     A = 0
+#     m = 0
+#     r = f.read()
+#     a = r.split()
+#     the = a.count('the')
+#     to =a.count('to')
+#
+# print(the)
+# print(to)
+#     r = f.readlines()
+#     for i in r:
+#         for j in i:
+#             if j == 'A' or j == 'a':
+#                 A += 1
+#             elif j == 'M' or j == 'm':
+#                 m += 1
+# print(A)
+# print(m)
+#     data = f.read()
+#     for i in range(len(data)):
+#         if data[i] == "$":
+#             break
+#
+#     print("Total number of characters up to the first $ before = ", i)
+import pickle
+# with open('member.dat','wb') as f:
+#     while True:
+#         Member = {}
+#         memberno = int(input('Enter member no: '))
+#         name = input("Enter member's name: ")
+#         Member['MemberNo'] = memberno
+#         Member['Name'] = name
+#         pickle.dump(Member,f)
+#         ch = input("enter 'y' to continue: ")
+#         if ch != 'y':
+#             break
+# with open('member.dat','rb') as f1:
+#     found = 0
+#     try:
+#         while True:
+#             x = pickle.load(f1)
+#             if x['Name'] == 'akash':
+#                 print(x)
+#                 found = 1
+#     except EOFError:
+#         if found == 0:
+#             print('Not found')
 
-    product = input('Enter Product name: ')
-    quantity = int(input("Enter quantity: "))
-    for rec in range(len(reader)):
-        print(rec)
-        if reader[rec][0].lower() == product.lower():
-            rec[1] = str(int(rec[1]) - quantity)
-            found = 1
-            n.append(rec)
-            print(n)
-    if found == 0:
-        print('not found')
+# def CreateFile():
+#     l=[]
+#     with open('Book.dat','wb') as f:
+#         while True:
+#             BookNo = int(input('Enter BookNo: '))
+#             Book_Name = input('Enter Book name: ')
+#             Author = input('Enter Author name: ')
+#             Price = int(input('Enter Price: '))
+#             l.append([BookNo,Book_Name,Author,Price])
+#             ch = input("enter 'y' to continue: ")
+#             if ch!= 'y':
+#                 break
+#         pickle.dump(l, f)
+# def CountRec(Author):
+#     with open('Book.dat','rb') as f:
+#         c=0
+#         try:
+#             while True:
+#                 x = pickle.load(f)
+#                 for i in x:
+#                     if i[2] == Author:
+#                         c += 1
+#         except EOFError:
+#             f.close()
+#         print(c)
+# CreateFile()
+# CountRec(Author='Akash')
+
+# n = input('Enter line: ')
+# l=[]
+# def is_empty(l):
+#     if l == []:
+#         return True
+#     else:
+#         return False
+# def push(n,l):
+#     for i in n:
+#         l.append(i)
+# def display(l):
+#     if is_empty(l):
+#         print('Underflow')
+#     else:
+#         top = len(l)-1
+#         while top >= 0:
+#             if l[top] == ' ':
+#                 pass
+#             else:
+#                 print(l.pop(top)*2,end=' ')
+#             top -= 1
+# push(n,l)
+# display(l)
+
+# L= ['a','b']
+# print(''.join(L))
+# def myfunc(a):
+#     a = a + 2
+#         a = a * 2
+#     return a
+# print(myfunc(2))
+
+# number = {}
+# number[(1,2,4)] = 8
+# number[(4,2,1)] = 10
+# number[(1,2)] = 12
+# sum = 0
+# for k in number:
+#     sum+=number
+# list1 = range (100,110)
+# print(list1)
+# print (": index of element 105 is ", list1.index(105))
+# print('abef'.partition('cd'))
+# m = (6,3,0,0)
+# n = (9,2,3,4)
+# print(m>n)
+# Inp = input('Enter a string: ')
+# while len(Inp) <= 4:
+#     if Inp[-1] == 'z':
+#         Inp = Inp[0:3]+'c'
+#     elif 'a' in Inp:
+#         Inp = Inp[0] + 'bb'
+#     elif not int(Inp[0]):
+#         Inp = '1'+Inp[1:]+'z'
+#     else:
+#         Inp = Inp + '*'
+# print(Inp)
+# L= []
+# Ll= []
+# L2= []
+# for i in range (1, 10):
+#     L.append(i)
+# for i in range(10,1,-2):
+#     Ll.append(i)
+# for i in range(len(Ll)):
+#     L2.append(Ll[i]+L[i])
+# L2.append(len(L)-len(Ll))
+# print(L2)
+# x=10
+# y=5
+# for i in range(x-y*2):
+#     print('%',i)
+# l = eval(input('Enter no: '))
+# n = int(input('Enter no: '))
+# u = len(l)-1
+# le = 0
+# found = 0
+# while u>0 and found == 0:
+#     mid = (u+le)//2
+#     if l[mid] == n:
+#         print('found at',mid+1)
+#         found = 1
+#     if l[mid] > n:
+#         u = mid -1
+#     if l[mid] <n:
+#         le = mid + 1
+# if found == 0:
+#     print('Not found')
+#found = 0
+# def binary_search(list, item):
+#     global found
+#     low = 0
+#     high = len(list) - 1
+#
+#     while low <= high:
+#         mid = (low + high) // 2
+#         guess = list[mid]
+#         if guess == item:
+#             print('Found')
+#             found = 1
+#             print(mid)
+#
+#         if guess > item:
+#             high = mid - 1
+#         else:
+#             low = mid + 1
+#
+# list = eval(input('Enter no: '))
+# item = int(input('Enter no: '))
+# def bubblesort(list):
+#     for i in range(len(list)):
+#         for j in range(0,len(list)-i-1):
+#             if list[j]>list[j+1]:
+#                 list[j],list[j+1] = list[j+1], list[j]
+#     print(list)
+# def insertionsort(list):
+#     for i in range(1,len(list)):
+#         key = list[i]
+#         j=i-1
+#         while j>=0 and key<list[j]:
+#             list[j+1]=list[j]
+#             j=j-1
+#         else:
+#             list[j+1] = key
+#     print(list)
+# def max(list):
+#     max = list[0]
+#     for i in list:
+#         if i > max:
+#             max = i
+#     print(max)
+# bubblesort(list)
+# insertionsort(list)
+# max(list)
+
+# l = eval(input('Enter matrix: '))
+# sum = 0
+# for i in range(len(l)):
+#     for j in range(len(l[i])):
+#         if i == j:
+#             sum += l[i][j]
+#             print(l[i][j])
+# print(sum)
+# def mk(x):
+#     def mk1():
+#         print("Decorated")
+#         x()
+#     return mk1
+# def mk2():
+#     print("Ordinary")
+# p = mk(mk2)
+# p()
+# with open('stu.txt','r') as f:
+#     l=[]
+#     r = f.read()
+#     for i in r:
+#         l.append((i,r.count(i)))
+#     d = dict.fromkeys(l)
+#     list = list(d)
+#     for i in list:
+#         print('No. of ',i[0],'is ',i[1] )
+# import csv
+# with open('notes.csv','r',newline='') as f:
+#     with open('teacher.csv','w',newline='') as f1:
+#         reader = csv.reader(f)
+#         writer = csv.writer(f1,delimiter = '|')
+#         for i in reader:
+#             writer.writerow(i)
+
+# l = [1,4,23,232]
+# n = int(input('Enter no: '))
+# u = len(l)-1
+# l1 = 0
+# found = 0
+# while len(l)>0 and found==0:
+#     mid = (l1+u)//2
+#     if l[mid] == n:
+#         print('Found at ',mid+1,' position')
+#         found = 1
+#     elif l[mid] > n:
+#         u = mid-1
+#     elif l[mid] < n:
+#         l1 = mid+1
+# list = eval(input('Enter list: '))
+# n = len(list)
+# for i in range(0,n):
+#     for j in range(0,n-i-1):
+#         if list[j] > list[j+1]:
+#             list[j],list[j+1] = list[j+1],list[j]
+# print(list)
+# for i in range(1,n):
+#     key = list[i]
+#     j = i-1
+#     while j >= 0 and key < list[j+1]:
+#         list[j+1] = list[j]
+#         j = j-1
+#     else:
+#         list[j+1] = key
+# print(list)
+
+# n =int(input('Enter no: '))
+# num = 0
+# deb = n
+# while n > 0:
+#     digit = n%10
+#     num = num*10 + digit
+#     n = n//10
+# print(num)
+# l = [1,2,4,23,232]
+# for i in l:
+#     fact =1
+#     for j in range(1,i+1):
+#         fact = fact*j
+#     print(fact)
+# for i in l:
+#     for j in range(2,i):
+#         if i%j == 0:
+#             break
+#     else:
+#         if i == 2:
+#             print(2,end=' ')
+#         else:
+#             print(i,end=' ')
+
+# for i in range(4,7):
+#     i = i+3
+#     print('hello')
+
+# l = eval(input('Enter: '))
+# for i in range(len(l)):
+#     for j in range(len(l[i])):
+#         row = len(l)//2
+#         column = len(l[i]) //2
+#         print('middle row: ',l[row][j])
+#         print('middle column: ',l[i][column])
+
+# l=['akash','l']
+# print(l[0:1])
