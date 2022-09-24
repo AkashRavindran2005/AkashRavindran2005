@@ -1,3 +1,4 @@
+#commands: play <song name>, search <something>, tell me about <someone>, tell me a joke
 import datetime
 import os
 try:
