@@ -54,8 +54,8 @@ nltk.download('omw-1.4')
 
 def talk(text2):
     global engine
-    voices = engine.getProperty('voices')
-    engine.setProperty('voice', voices[1].id)
+    voice = engine.getProperty('voices')
+    engine.setProperty('voice', voice[1].id)
     engine.say(text2)
     engine.runAndWait()
 
@@ -147,7 +147,7 @@ def joke():
                 for i in text:
                     text1 += i.lower()
             talk(pyjokes.get_joke())
-            engine.runAndWait
+            engine.runAndWait()
             print(pyjokes.get_joke())
             done = True
         except freddy.UnknownValueError:
