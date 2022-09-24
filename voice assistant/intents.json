@@ -1,0 +1,43 @@
+{"intents": [
+  {"tag": "greeting",
+    "patterns": ["Hi", "How are you", "Is anyone there?", "Hello", "Good day", "Whats up", "Hey", "greetings"],
+    "responses": ["Hello!", "Good to see you again!", "Hi there, how can I help?"],
+    "context_set": ""
+  },
+  {"tag": "goodbye",
+    "patterns": ["cya", "See you later", "Goodbye", "I am Leaving", "Have a Good day", "bye", "cao", "see ya"],
+    "responses": ["Sad to see you go :(", "Talk to you later", "Goodbye!"],
+    "context_set": ""
+  },
+  {"tag": "play",
+    "patterns": ["play", "play on youtube", "play on yt"],
+    "responses": ["opening youtube", "playing","playing on youtube", "playing on yt"],
+    "context_set": ""
+  },
+  {"tag": "about",
+    "patterns": ["tell me about", "talk about", "what is", "who is"],
+    "responses": ["here you go sir"],
+    "context_set": ""
+  },
+  {"tag": "joke",
+    "patterns": ["tell me a joke", "lighten the mood", "cheer me up"],
+    "responses": ["This might me cringy but here you go sir"],
+    "context_set": ""
+  },
+  {"tag": "search",
+    "patterns": ["search"],
+    "responses": ["here you go sir", "opening google"],
+    "context_set": ""
+  },
+  {"tag": "open",
+    "patterns": ["open", "switch window"],
+    "responses": ["opening", "here you go sir"],
+    "context_set": ""
+  },
+  {"tag": "thank you",
+    "patterns": ["thank you", "awesome", "nice", "very good", "excellent"],
+    "responses": ["thank you sir", "my pleasure sir"],
+    "context_set": ""
+  }
+]
+}
