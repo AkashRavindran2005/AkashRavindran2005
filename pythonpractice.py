@@ -174,6 +174,7 @@ import pickle
 #     for m in s:
 #         print('no. of',m[0],'is',m[1])
 import pickle
+
 # n=int(input('enter book id'))
 # l=[]
 # found=False
@@ -245,7 +246,7 @@ import pickle
 #     x=x-1
 
 
-list=[23,1,31,106,3]
+list = [23, 1, 31, 106, 3]
 # n=int(input('enter no: '))
 # u=len(list)-1
 # l=0
@@ -442,7 +443,7 @@ list=[23,1,31,106,3]
 # for i in T:
 #     r.append(len(i))
 # print(tuple(r))
-#l = []
+# l = []
 
 # while True:
 #     date = input('enter: ')
@@ -511,39 +512,64 @@ list=[23,1,31,106,3]
 #             print(x)
 #     except EOFError:
 #         print('')
-import csv
-with open('products.csv', 'r', newline='') as f1:
-    reader = csv.reader(f1)
-    print('{:<60} {:<5}'.format('Products', 'Stocks'))
-    found = 0
-    n = []
-    for i in reader:
-        print('{:<60} {:<5}'.format(i[0], i[1]))
-        key = i
+# import csv
+# with open('products.csv', 'r', newline='') as f1:
+#     reader = csv.reader(f1)
+#     print('{:<60} {:<5}'.format('Products', 'Stocks'))
+#     found = 0
+#     n = []
+#     for i in reader:
+#         print('{:<60} {:<5}'.format(i[0], i[1]))
+#         key = i
+#
+#
+#     def check(product, reader, quantity):
+#         global found
+#         global n
+#         f1.seek(0)
+#         for rec in reader:
+#             if rec[0].lower() == product.lower():
+#                 rec[1] = str(int(rec[1]) - quantity)
+#                 found = 1
+#                 n.append(rec)
+#                 return True
+#             else:
+#                 return False
+#
+#
+#     product = input('Enter Product name: ')
+#     quantity = int(input("Enter quantity: "))
+#     for rec in range(len(reader)):
+#         print(rec)
+#         if reader[rec][0].lower() == product.lower():
+#             rec[1] = str(int(rec[1]) - quantity)
+#             found = 1
+#             n.append(rec)
+#             print(n)
+#     if found == 0:
+#         print('not found')
+# import tkinter
+# root = tkinter.Tk()
+# def bruh():
+#     label = tkinter.Label(root,text='ok')
+#     label.pack()
+# start = tkinter.Button(root, text= 'start', command=bruh)
+# start.pack()
+# root.mainloop()
+# import tkinter
+# root = tkinter.Tk()
+# label = tkinter.Label(root,text='Akash')
+# label.pack()
+# root.mainloop()
 
+from chatterbot import chatbot
+from chatterbot.trainers import ListTrainer
 
-    def check(product, reader, quantity):
-        global found
-        global n
-        f1.seek(0)
-        for rec in reader:
-            if rec[0].lower() == product.lower():
-                rec[1] = str(int(rec[1]) - quantity)
-                found = 1
-                n.append(rec)
-                return True
-            else:
-                return False
-
-
-    product = input('Enter Product name: ')
-    quantity = int(input("Enter quantity: "))
-    for rec in range(len(reader)):
-        print(rec)
-        if reader[rec][0].lower() == product.lower():
-            rec[1] = str(int(rec[1]) - quantity)
-            found = 1
-            n.append(rec)
-            print(n)
-    if found == 0:
-        print('not found')
+# creating a new chatbot
+chatbot = Chatbot('Edureka')
+trainer = ListTrainer(chatbot)
+trainer.train(['hi, can I help you find a course', 'sure I'd love to find you a course', 'your course have been selected'])
+# getting a response from the chatbot
+response = chatbot.get_response("I want a course")
+print(response)
+import s

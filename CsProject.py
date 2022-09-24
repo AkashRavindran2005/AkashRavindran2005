@@ -1,56 +1,109 @@
 import datetime
-from pyttsx3 import engine
-import pyjokes
-import pywhatkit
-import speech_recognition as freddy
-import wikipedia
-from serpapi import GoogleSearch
+import os
+try:
+    import pyttsx3
+except ImportError:
+    os.system('pip install tk')
+    import pyttsx3
+try:
+    import pyjokes
+except ImportError:
+    os.system('pip install pyjokes')
+    import pyjokes
+try:
+    import pywhatkit
+except ImportError:
+    os.system('pip install pywhatkit')
+    import pywhatkit
+try:
+    import speech_recognition as freddy
+except ImportError:
+    os.system('pip install speech-recognition-python')
+    import speech_recognition as freddy
 
-while True:
-    def talk(text1):
-        engine.say(text1)
+import subprocess
+import threading
+import tkinter
+
+engine = pyttsx3.init()
+listener = freddy.Recognizer()
+root = tkinter.Tk()
+root.geometry('200x200')
+
+listen = tkinter.Label(root, text='Listening')
+listen.pack()
+
+
+def loop(t=0):
+    if t<12:
+        listen.configure(text='Listening' + '.' * (t%3 + 1))
+        root.after(500, loop, t+1)
+
+
+loop()
+
+
+def listening():
+    def talk(text2):
+        engine.say(text2)
         engine.runAndWait()
 
-    def initialization():
-        try:
-            with freddy.Microphone() as input:
-                print("Listening...")
-                voice = listener.listen(input)
-                text = listener.recognize_google(voice)
-                text = text.lower()
-                if 'alexa' in text:
-                    text = text.replace("alexa", "")
-                    talk(text)
+    def initialization(listener):
+        with freddy.Microphone() as mic:
+            voice = listener.listen(mic)
+            listener.adjust_for_ambient_noise(mic)
+            try:
+                text1 = listener.recognize_google(voice)
+                text1 = text1.lower()
+                if 'alexa' in text1:
+                    text1 = text1.replace("alexa", "")
+                    talk(text1)
+            except freddy.UnknownValueError:
+                print('')
+
+        return text1
+    wake = 'alexa'
+    while True:
+        text = initialization(listener)
+        talk("I'm Ready")
+        if 'play' in text:
+            song = text.replace('play', '')
+            talk('playing' + song)
+            button = tkinter.Label(root,text="Playing"+ song)
+            button.pack()
+            pywhatkit.playonyt(song)
+        elif 'time' in text:
+            time = datetime.datetime.now().strftime("%I:%M %p")
+            talk("Current time is " + time)
+            button1 = tkinter.Label(root,text=time)
+            button1.pack()
+        elif 'tell me about' in text:
+            wiki = text.replace("tell me about", '')
+            button2 = tkinter.Label(root,text=pywhatkit.info(wiki, lines=5))
+            button2.pack()
+            talk(pywhatkit.info(wiki, lines=5))
+        elif 'joke' in text:
+            talk(pyjokes.get_joke())
+            button3 = tkinter.Label(root,text=pyjokes.get_joke())
+            button3.pack()
+        elif 'search' in text:
+            text3 = text.replace("search", '')
+            button4 = tkinter.Label(root, text='Opening Google')
+            button4.pack()
+            pywhatkit.search(text3)
+        elif 'open' in text:
+            open = text.replace('open','')
+            app = open + '.exe'
+            subprocess.call(app)
+        else:
+            talk("Please tell the command again")
 
 
-        except:
-            pass
-        return text
-    text=initialization()
-    print(text)
-    if 'play' in text:
+listening()
 
-        song = text.replace('play', '')
-        talk('playing' + song)
-        print("Playing", song)
-        pywhatkit.playonyt(song)
-    elif 'time' in text:
-        time = datetime.datetime.now().strftime("%I:%M %p")
-        talk("Current time is " + time)
-        print(time)
-    elif 'search1' in text:
-        search = text.replace("search", '')
-        info = wikipedia.summary(search, 1)
-        print(info)
-        talk(info)
-    elif 'joke' in text:
-        talk(pyjokes.get_joke())
-    elif 'search' in text:
-        text1 = text.replace("search", '')
-        search1 = GoogleSearch({"q": text1, "api_key": "secretkey"})
-        result = search1.get_dict()
-    else:
-        talk("Pls tell the command again")
+
+root.mainloop()
+
 
 
 
