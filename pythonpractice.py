@@ -9,6 +9,7 @@
 #         if ch!='y':
 #             break
 #     pickle.dump(s,f)
+
 import pickle
 
 # num=int(input('enter member code'))
@@ -563,3 +564,14 @@ list = [23, 1, 31, 106, 3]
 # root.mainloop()
 #date = date(input('enter: '))
 #print(date)
+# import csv
+# with open('expense.csv','r') as f:
+#     reader = csv.reader(f)
+#     for i in reader:
+#         print(i)
+l =['Total amount: 10000.0']
+l1 = []
+for i in l:
+    if i.isdigit():
+        l1.append(i)
+        print(l1)
