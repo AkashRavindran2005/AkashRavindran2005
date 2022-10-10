@@ -561,3 +561,5 @@ list = [23, 1, 31, 106, 3]
 # label = tkinter.Label(root,text='Akash')
 # label.pack()
 # root.mainloop()
+#date = date(input('enter: '))
+#print(date)
