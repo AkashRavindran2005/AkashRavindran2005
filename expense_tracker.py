@@ -9,7 +9,7 @@ except ImportError:
 with open('expense.csv','r',newline='') as f:
     reader = csv.reader(f)
     for i in reader:
-        if i != []:
+        if os.stat('expense.csv').st_size != 0:
             pass
         else:
             tot_amount = float(input('Total amount: '))
@@ -20,7 +20,7 @@ def tracker():
             writer = csv.writer(f,delimiter=' ')
             reader = csv.reader(file)
             for i in reader:
-                if i != []:
+                if os.stat('expense.csv').st_size != 0:
                     pass
                 else:
                     writer.writerow(['Total amount: ' + str(tot_amount)])
@@ -33,7 +33,7 @@ def tracker():
                 amount = float(input('Enter amount: '))
                 for i in reader:
                     str = ''
-                    if i[0] != []:
+                    if os.stat('expense.csv').st_size != 0:
                         for j in i[0]:
                             for k in j:
                                 if k.isdigit():
@@ -53,7 +53,7 @@ def display():
         reader = csv.reader(f)
         str = ''
         for i in reader:
-            if i[0] != []:
+            if os.stat('expense.csv').st_size != 0:
                 for j in i[0]:
                     for k in j:
                         if k.isdigit():
@@ -76,7 +76,7 @@ def report1():
         totsum = 0
         str = 0
         for i in reader:
-            if i[0] == date:
+            if os.stat('expense.csv').st_size != 0:
                 totsum += i[2]
                 if i[0] != []:
                     for j in i:

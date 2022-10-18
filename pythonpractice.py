@@ -10,6 +10,10 @@
 #             break
 #     pickle.dump(s,f)
 
+import imp
+import math
+from operator import le
+from pdb import pm
 import pickle
 
 # num=int(input('enter member code'))
@@ -564,18 +568,109 @@ list = [23, 1, 31, 106, 3]
 # root.mainloop()
 #date = date(input('enter: '))
 #print(date)
-import csv
-with open('expense.csv','r') as f:
-    reader = csv.reader(f)
-    for i in reader:
-        print(i)
-# l =['Total amount: 10000.0']
-# l1 = []
-# for i in l:
-#     if i.isdigit():
-#         l1.append(i)
-#         print(l1)
-with open('Invoice.csv','r',newline='') as f:
-    rad = csv.reader(f)
-    for i in rad:
-        print(i)
+# import csv
+# with open('expense.csv','r') as f:
+#     reader = csv.reader(f)
+#     for i in reader:
+#         print(i)
+# # l =['Total amount: 10000.0']
+# # l1 = []
+# # for i in l:
+# #     if i.isdigit():
+# #         l1.append(i)
+# #         print(l1)
+# with open('Invoice.csv','r',newline='') as f:
+#     rad = csv.reader(f)
+#     for i in rad:
+#         print(i)
+# import csv
+# import statistics
+# with open('student.csv', 'w', newline='') as f:
+#     d = {}
+#     writer = csv.writer(f)
+#     while True:
+#         name = input('Enter name: ')
+#         rollno = input('Enter roll no: ')
+#         emarks = int(input('Enter english marks: '))
+#         csmarks = int(input('Enter computer science marks: '))
+#         pmarks = int(input('Enter physics marks: '))
+#         cmarks = int(input('Enter chemistry marks: '))
+#         mmarks = int(input('Enter maths marks: '))
+#         rec = [name, rollno, emarks, csmarks, pmarks, cmarks, mmarks]
+#         writer.writerow(rec)
+#         d[name] = [emarks,csmarks,pmarks,cmarks,mmarks]
+#         ch = input('Enter "y" to continue: ')
+#         if ch!= 'y':
+#             break
+#     english = []
+#     cs = []
+#     chemistry = []
+#     physics = []
+#     maths = []
+#     for i in d.keys():
+#         english.append(d[i][0])
+#         cs.append(d[i][1])
+#         chemistry.append(d[i][3])
+#         physics.append(d[i][2])
+#         maths.append(d[i][-1])
+#     emean = statistics.mean(english)
+#     csmean = statistics.mean(cs)
+#     cmean = statistics.mean(chemistry)
+#     pmean = statistics.mean(physics)
+#     mmean = statistics.mean(maths)
+#     print('Englsih subject mean: ',emean)
+#     print('Computer science mean: ',csmean)
+#     print('Chemistry subject mean: ',cmean)
+#     print('Enter physics mean: ',pmean)
+#     print('Mathematics subject mean: ',mmean)
+#     emode = statistics.mode(english)
+#     csmode = statistics.mode(cs)
+#     cmode = statistics.mode(chemistry)
+#     pmode = statistics.mode(physics)
+#     mmode = statistics.mode(maths)
+#     print('Englsih subject mode: ',emode)
+#     print('Computer science subject mode: ',csmode)
+#     print('Chemistry subject mode: ',cmode)
+#     print('Physics subject mode: ',pmode)
+#     print('Mathematics subject mode: ',mmode)
+#     emedian = statistics.median(english)
+#     csmedian = statistics.median(cs)
+#     cmedian = statistics.median(chemistry)
+#     pmedian = statistics.median(physics)
+#     mmedian = statistics.median(maths)
+#     print('English subject median: ',emedian)
+#     print('Computer science subject median: ',csmedian)
+#     print('Chemistry subject median: ',cmedian)
+#     print('Physics subject median: ',pmedian)
+#     print('Mathematics subject median: ',mmedian)
+#     eavg = sum(english)/len(english)
+#     csavg = sum(cs)/len(cs)
+#     cavg = sum(chemistry)/len(chemistry)
+#     pavg = sum(physics)/len(physics)
+#     mavg = sum(maths)/len(maths)
+#     print('English subject average marks: ',eavg)
+#     print('Computer science subject average marks: ',csavg)
+#     print('Chemistry subject average marks: ',cavg)
+#     print('Physics subject average marks: ',pavg)
+#     print('Mathematics subject average marks: ',mavg)
+#     print('Lowest english mark: ',min(english), 'Highest english mark: ',max(english))
+#     print('Lowest chemistry mark: ',min(chemistry), 'Highest chemistry mark: ',max(chemistry))
+#     print('Lowest computer science mark: ',min(cs), 'Highest computer science mark: ',max(cs))
+#     print('Lowest physics mark: ',min(physics), 'Highest physics mark: ',max(physics))
+#     print('Lowest mathematics mark: ',min(maths),'Highest mathematics mark: ',max(maths))
+#     print('Rnage of english marks: ', max(english)-min(english))
+#     print('Range of Computer science marks: ',max(cs)-min(cs))
+#     print('Range of chemistry marks: ',max(chemistry)-min(chemistry))
+#     print('Range of physics marks: ',max(physics)-min(physics))
+#     print('Range of maths marks: ',max(maths)-min(maths))
+# with open('student.csv','r') as f:
+#     reader = csv.reader(f)
+#     print("{:<25} {:<10} {:<3} {:<3} {:<3} {:<3} {:<3}".format('Name', 'Roll No', 'English', 'Cs', 'Chemistry', 'Physics', 'Maths'))
+#     for i in reader:
+#         print("{:<25} {:<10} {:<3} {:<8} {:<5} {:<8} {:<8}".format(i[0], i[1], i[2], i[3], i[4], i[5], i[6]))
+import tkinter as tk
+root = tk.Tk()
+Entry = tk.Entry(root,text='Akash', textvariable=tk.StringVar())
+Entry.pack()
+print(Entry.get())
+root.mainloop()
