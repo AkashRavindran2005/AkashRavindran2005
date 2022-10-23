@@ -670,7 +670,17 @@ list = [23, 1, 31, 106, 3]
 #         print("{:<25} {:<10} {:<3} {:<8} {:<5} {:<8} {:<8}".format(i[0], i[1], i[2], i[3], i[4], i[5], i[6]))
 import tkinter as tk
 root = tk.Tk()
-Entry = tk.Entry(root,text='Akash', textvariable=tk.StringVar())
-Entry.pack()
-print(Entry.get())
+
+def rootwin():
+    top = tk.Toplevel(root)
+    Entry = tk.Entry(top, textvariable=tk.StringVar())
+    Entry.grid(row=0,column=0)
+    def write()
+        with open('access.txt', 'a') as f:
+            f.write(f'{Entry.get()}')
+    button1 = tk.Button(top, text='submit', command = lambda: entry(Entry))
+    button1.grid(row=1,column=1)
+    top.mainloop()
+button = tk.Button(root, text='open', command= rootwin)
+button.pack()
 root.mainloop()
