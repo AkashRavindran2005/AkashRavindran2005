@@ -38,4 +38,4 @@ def sending_email():
     quit=tkinter.Button(root,text='Quit',command=root.quit)
     quit.grid(row=3,column=0)
     root.mainloop()
-
+sending_email()
