@@ -1,5 +1,6 @@
 import csv
 import os
+from re import T
 try:
     import pymysql
 except ImportError:
@@ -15,7 +16,7 @@ try:
 except ImportError:
     os.system('pip install matplotlib')
     from matplotlib import pyplot as plt
-mycon = pymysql.connect(host = "localhost",user = "root",passwd = "akhilesh2005")
+mycon = pymysql.connect(host = "localhost",user = "root",passwd = "1605")
 mycur = mycon.cursor()
 mycur.execute('create database if not exists expense_tracker;')
 mycur.execute('use expense_tracker;')
@@ -85,7 +86,23 @@ def pie_chart():
         fig = plt.figure(figsize=(7,7))
         plt.pie(nper, labels=nl, autopct='%.1f%%')
         plt.show()
-create()
-display()
-write()
-pie_chart()
+while True:
+    print('1. Enter details')
+    print('2. Display the records')
+    print("3. Display that day's total expense report ")
+    print("4. Display that month's total expense through pictorial representation")
+    print("5. Exit")
+    ch = int(input('Enter choice: '))
+    if ch == 1:
+        create()
+    if ch == 2:
+        display()
+    if ch == 3:
+        report1()
+    if ch == 4:
+        write()
+        pie_chart()
+    if ch == 5:
+        break
+    else:
+        print('Invalid choice')
