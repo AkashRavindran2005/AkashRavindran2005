@@ -16,7 +16,7 @@ try:
 except ImportError:
     os.system('pip install matplotlib')
     from matplotlib import pyplot as plt
-mycon = pymysql.connect(host = "localhost",user = "root",passwd = "1605")
+mycon = pymysql.connect(host = "localhost",user = "root",passwd = "akhilesh2005")
 mycur = mycon.cursor()
 mycur.execute('create database if not exists expense_tracker;')
 mycur.execute('use expense_tracker;')
