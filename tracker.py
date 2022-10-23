@@ -1,9 +1,24 @@
 import csv
-import pymysql
-from prettytable import PrettyTable
-from matplotlib import pyplot as plt
-mycon = pymysql.connect(host = "localhost",user = "root",passwd = "1605",database = "expense_tracker")
+import os
+try:
+    import pymysql
+except ImportError:
+    os.system('pip install PyMySQL')
+    import pymysql
+try:
+    from prettytable import PrettyTable
+except ImportError:
+    os.system('pip install prettytable')
+    from prettytable import PrettyTable
+try:
+    from matplotlib import pyplot as plt
+except ImportError:
+    os.system('pip install matplotlib')
+    from matplotlib import pyplot as plt
+mycon = pymysql.connect(host = "localhost",user = "root",passwd = "akhilesh2005")
 mycur = mycon.cursor()
+mycur.execute('create database if not exists expense_tracker;')
+mycur.execute('use expense_tracker;')
 l=[]
 tot_amount = 100000
 temp =tot_amount
