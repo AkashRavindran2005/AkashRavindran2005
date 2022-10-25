@@ -17,14 +17,16 @@ except ImportError:
     from matplotlib.figure import Figure
 import tkinter as tk
 from tkinter import Toplevel, ttk
-mycon = pymysql.connect(host = "localhost",user = "root",passwd = "akhilesh2005")
+mycon = pymysql.connect(host = "localhost",user = "root",passwd = "1605")
 mycur = mycon.cursor()
 mycur.execute('create database if not exists expense_tracker;')
 mycur.execute('use expense_tracker;')
 root =tk.Tk()
-root.geometry('300x250')
+root.geometry('300x275')
 root.title('Expense Tracker')
-
+mycur.execute('create table if not exists tracker(Date char(10), Expense char(25), Category char(25), Amount int(10), Balance int(10));')
+tot_amount = 0
+temp = 0
 def totalamount():
     top = Toplevel(root)
     top.title('Total amount')
@@ -42,24 +44,35 @@ def totalamount():
     submi.grid(row=1, column=0)
     button = tk.Button(top, text='Quit',command=quitagain)
     button.grid(row=1, column=1)
-mycur.execute('create table if not exists tracker(Date char(10), Expense char(25), Category char(25), Amount int(10), Balance int(10));')
-mycur.execute('select * from tracker;')
-fetch = mycur.fetchall()
-tot_amount = 0
-if fetch == ():
-    with open('Check.txt', 'r') as f:
-        tot_amount = int(f.read())
-        temp = tot_amount
-else:
-    tot_amount = fetch[-1][-1]
-    with open('Check.txt', 'r') as f:
-        temp = int(f.read())
-print(tot_amount)
-print(temp)
+    mycur.execute('select * from tracker;')
+    fetch = mycur.fetchall()
+    tot_amount = 0
+    if fetch == ():
+        with open('Check.txt', 'r') as f:
+            tot_amount = int(f.read())
+            temp = tot_amount
+    else:
+        tot_amount = fetch[-1][-1]
+        with open('Check.txt', 'r') as f:
+            temp = f.read()
+            temp = int(temp)
 def quit():
     root.destroy()
 def create():
     global tot_amount
+    global temp
+    mycur.execute('select * from tracker;')
+    fetch = mycur.fetchall()
+    tot_amount = 0
+    if fetch == ():
+        with open('Check.txt', 'r') as f:
+            tot_amount = int(f.read())
+            temp = tot_amount
+    else:
+        tot_amount = fetch[-1][-1]
+        with open('Check.txt', 'r') as f:
+            temp = f.read()
+            temp = int(temp)
     top =Toplevel(root)
     top.geometry('200x200')
     top.title('Enter details')
