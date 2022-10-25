@@ -17,7 +17,7 @@ except ImportError:
     from matplotlib.figure import Figure
 import tkinter as tk
 from tkinter import Toplevel, ttk
-mycon = pymysql.connect(host = "localhost",user = "root",passwd = "1605")
+mycon = pymysql.connect(host = "localhost",user = "root",passwd = "akhilesh2005")
 mycur = mycon.cursor()
 mycur.execute('create database if not exists expense_tracker;')
 mycur.execute('use expense_tracker;')
