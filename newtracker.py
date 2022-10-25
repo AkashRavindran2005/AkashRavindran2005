@@ -1,3 +1,4 @@
+
 import csv
 import os
 try:
@@ -16,16 +17,45 @@ except ImportError:
     from matplotlib.figure import Figure
 import tkinter as tk
 from tkinter import Toplevel, ttk
-mycon = pymysql.connect(host = "localhost",user = "root",passwd = "akhilesh2005")
+mycon = pymysql.connect(host = "localhost",user = "root",passwd = "1605")
 mycur = mycon.cursor()
 mycur.execute('create database if not exists expense_tracker;')
 mycur.execute('use expense_tracker;')
-l=[]
 root =tk.Tk()
-root.geometry('300x150')
+root.geometry('300x250')
 root.title('Expense Tracker')
-tot_amount = 100000
-temp =tot_amount
+
+def totalamount():
+    top = Toplevel(root)
+    top.title('Total amount')
+    label= tk.Label(top, text='Total amount')
+    label.grid(row=0, column=0)
+    labelbox = tk.Entry(top, textvariable=tk.StringVar())
+    labelbox.grid(row=0, column=1)
+    def quitagain():
+        top.destroy()
+    def submit():
+        with open('Check.txt','w') as f:
+            labelval = labelbox.get()
+            f.write(labelval)
+    submi = tk.Button(top, text='Submit', command=submit)
+    submi.grid(row=1, column=0)
+    button = tk.Button(top, text='Quit',command=quitagain)
+    button.grid(row=1, column=1)
+mycur.execute('create table if not exists tracker(Date char(10), Expense char(25), Category char(25), Amount int(10), Balance int(10));')
+mycur.execute('select * from tracker;')
+fetch = mycur.fetchall()
+tot_amount = 0
+if fetch == ():
+    with open('Check.txt', 'r') as f:
+        tot_amount = int(f.read())
+        temp = tot_amount
+else:
+    tot_amount = fetch[-1][-1]
+    with open('Check.txt', 'r') as f:
+        temp = int(f.read())
+print(tot_amount)
+print(temp)
 def quit():
     root.destroy()
 def create():
@@ -33,7 +63,6 @@ def create():
     top =Toplevel(root)
     top.geometry('200x200')
     top.title('Enter details')
-    mycur.execute('create table if not exists tracker(Date char(10), Expense char(25), Category char(25), Amount int(10), Balance int(10));')
     date = tk.Label(top, text='Date(YYYY-MM-DD)')
     date.grid(row=0, column=0)
     datebox = tk.Entry(top, textvariable=tk.StringVar())
@@ -56,7 +85,6 @@ def create():
         expensevalue = expensebox.get()
         categoryvalue = categorybox.get()
         amountvalue = amountbox.get()
-    
         tot_amount = tot_amount - int(amountvalue)
         st = "insert into tracker values('{}','{}','{}',{},{})".format(datevalue, expensevalue, categoryvalue, amountvalue, tot_amount)
         mycur.execute(st)
@@ -89,8 +117,6 @@ def display():
         tv.insert('','end', values=i)
     label2 = tk.Label(top, text='Total balance: '+str(fetch[-1][-1]))
     label2.grid(row=1, column=0)
-    label3 = tk.Label(top, text='Tip: Keep total housing costs (rent/mortage + utilities) under 25-30% of your income')
-    label3.grid(row=2, column=0)
     def quit3():
         top.destroy()
     button_l = tk.Button(top, text='Quit', command=quit3)
@@ -169,14 +195,34 @@ def pie_chart():
     button_a = tk.Button(top,text='Submit', command=write)
     button_a.grid(row=1, column=0)
     button_k.grid(row=1, column=1)
-button1 = tk.Button(root, text='Enter deatils', command=create)
-button1.grid(row=0, column=0)
-button2 = tk.Button(root, text='Display', command=display)
-button2.grid(row=1, column=0)
-button3 = tk.Button(root, text='Expense of that day', command=report1)
-button3.grid(row=2, column=0)
-button4 = tk.Button(root, text='Expense of that month in a pie chart', command=pie_chart)
-button4.grid(row=3, column=0)
-button5 = tk.Button(root, text='Quit', command=quit)
-button5.grid(row=4, column=0)
+with open('Check.txt', 'r') as f:
+    x = f.readlines()
+    if x == []:
+        button = tk.Button(root, text='Enter total amount', command=totalamount)
+        button.grid(row=0, column=0)
+        button1 = tk.Button(root, text='Enter deatils', command=create)
+        button1.grid(row=1, column=0)
+        button2 = tk.Button(root, text='Display', command=display)
+        button2.grid(row=2, column=0)
+        button3 = tk.Button(root, text='Expense of that day', command=report1)
+        button3.grid(row=3, column=0)
+        button4 = tk.Button(root, text='Expense of that month in a pie chart', command=pie_chart)
+        button4.grid(row=4, column=0)
+        button5 = tk.Button(root, text='Quit', command=quit)
+        button5.grid(row=5, column=0)
+    else:
+        button1 = tk.Button(root, text='Enter deatils', command=create)
+        button1.grid(row=0, column=0)
+        button2 = tk.Button(root, text='Display', command=display)
+        button2.grid(row=1, column=0)
+        button3 = tk.Button(root, text='Expense of that day', command=report1)
+        button3.grid(row=2, column=0)
+        button4 = tk.Button(root, text='Expense of that month in a pie chart', command=pie_chart)
+        button4.grid(row=3, column=0)
+        button5 = tk.Button(root, text='Quit', command=quit)
+        button5.grid(row=4, column=0)
+label1 = tk.Label(root, text='Financial tips:')
+label1.grid(row=6, column=0)
+label2 = tk.Label(root, text='1.Create A Budget \n2.Use Cash Instead Of Plastic Money \n3.Create An Emergency Fund \n4.Set Financial Goals \n5.Avoid Taking On Debt')
+label2.grid(row=7, column=0)
 root.mainloop()
