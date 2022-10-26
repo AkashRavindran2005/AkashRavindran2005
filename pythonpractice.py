@@ -668,19 +668,53 @@ list = [23, 1, 31, 106, 3]
 #     print("{:<25} {:<10} {:<3} {:<3} {:<3} {:<3} {:<3}".format('Name', 'Roll No', 'English', 'Cs', 'Chemistry', 'Physics', 'Maths'))
 #     for i in reader:
 #         print("{:<25} {:<10} {:<3} {:<8} {:<5} {:<8} {:<8}".format(i[0], i[1], i[2], i[3], i[4], i[5], i[6]))
-import tkinter as tk
-root = tk.Tk()
+# import tkinter as tk
+# root = tk.Tk()
 
-def rootwin():
-    top = tk.Toplevel(root)
-    Entry = tk.Entry(top, textvariable=tk.StringVar())
-    Entry.grid(row=0,column=0)
-    def write()
-        with open('access.txt', 'a') as f:
-            f.write(f'{Entry.get()}')
-    button1 = tk.Button(top, text='submit', command = lambda: entry(Entry))
-    button1.grid(row=1,column=1)
-    top.mainloop()
-button = tk.Button(root, text='open', command= rootwin)
-button.pack()
+# def rootwin():
+#     top = tk.Toplevel(root)
+#     Entry = tk.Entry(top, textvariable=tk.StringVar())
+#     Entry.grid(row=0,column=0)
+#     def write()
+#         with open('access.txt', 'a') as f:
+#             f.write(f'{Entry.get()}')
+#     button1 = tk.Button(top, text='submit', command = lambda: entry(Entry))
+#     button1.grid(row=1,column=1)
+#     top.mainloop()
+# button = tk.Button(root, text='open', command= rootwin)
+# button.pack()
+# root.mainloop()
+# import pymysql
+# mycon = pymysql.connect(host = "localhost",user = "root",passwd = "1605", database='expense_tracker')
+# mycur = mycon.cursor()
+# mycur.execute('create table if not exists tracker(Date char(10), Expense char(25), Category char(25), Amount int(10), Balance int(10));')
+# mycur.execute('select * from tracker;')
+# fetch = mycur.fetchall()
+# print(fetch)
+# from tkinter import *
+# from PIL import Image, ImageTk
+# root = Tk()
+# def func():
+#     top = Toplevel(root)
+#     frm = Frame(top)
+#     frm.pack()
+#     Frame_image=Image.open("App1.png")
+#     test = ImageTk.PhotoImage(Frame_image)
+#     fram_myimage=Label(frm,image=test,bg='#f4f5f5')
+#     fram_myimage.image = test
+#     fram_myimage.pack()
+# button = Button(root, text='Sup', command=func)
+# button.pack()
+# root.mainloop()
+from tkinter import *
+root = Tk()
+def func():
+    top = Toplevel(root)
+    frm = Frame(top)
+    frm.pack()
+    Frame_image = PhotoImage(file='App1.png')
+    fram_myimage = Label(frm, image=Frame_image)
+    fram_myimage.image = Frame_image
+    fram_myimage.pack()
+func()
 root.mainloop()
