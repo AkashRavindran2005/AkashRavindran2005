@@ -1,12 +1,7 @@
 import csv
 import os
+import mysql.connector as m
 try:
-    import pymysql
-except ImportError:
-    os.system('pip install pymysql')
-    import pymysql
-try:
-    from matplotlib import pyplot as plt
     from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg
     from matplotlib.figure import Figure 
 except ImportError:
@@ -16,7 +11,7 @@ except ImportError:
     from matplotlib.figure import Figure
 import tkinter as tk
 from tkinter import Toplevel, ttk
-mycon = pymysql.connect(host = "localhost",user = "root",passwd = "1605")
+mycon = m.connect(host = "localhost",user = "root",passwd = "1605")
 mycur = mycon.cursor()
 mycur.execute('create database if not exists expense_tracker;')
 mycur.execute('use expense_tracker;')
