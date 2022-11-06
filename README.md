@@ -1,5 +1,5 @@
-- 👋 Hi, I’m @Leviathan1234556
-- 👀 I’m interested in 3d, 2d animation and vfx
-- 🌱 I’m currently studying class 12
-- 💞️ I’m looking to collaborate on [idk]
-- 📫 How to reach me on Twitter: @Leviathan123455
+👋 Hi, I’m @Leviathan1234556
+👀 I’m interested in 3d, 2d animation and vfx
+🌱 I’m currently studying class 12
+💞️ I’m looking to collaborate on [idk]
+📫 How to reach me on Twitter: @Leviathan123455
