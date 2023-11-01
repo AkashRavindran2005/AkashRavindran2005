@@ -23,28 +23,28 @@ from tkinter import Button
 import platform
 import psutil
 
-#brightness
+
 import screen_brightness_control as pct
 
-#audio
+
 from ctypes import cast, POINTER
 from comtypes import CLSCTX_ALL
 from pycaw.pycaw import AudioUtilities, IAudioEndpointVolume
 
-#weather
+
 from geopy.geocoders import Nominatim
 from timezonefinder import TimezoneFinder
 from datetime import datetime
 import requests
 import pytz
 
-#clock
+
 from time import strftime
 
-#calendar
+
 from tkcalendar import *
 
-#open google
+
 import pyautogui
 
 import subprocess
@@ -62,18 +62,18 @@ def app():
     root.resizable(False,False)
     root.configure(background='#292e2e')
 
-    #icon
+
     image_icon=PhotoImage(file="icon.png")
     root.iconphoto(False,image_icon)
 
     Body=Frame(root,width=900,height=600,bg='#d6d6d6')
     Body.pack(pady=20,padx=20)
 
-    #--------------------------------
+    
     LHS=Frame(Body,width=310,height=435,bg='#f4f5f5',highlightthickness=1)
     LHS.place(x=10,y=10)
 
-    #logo
+    
     photo=PhotoImage(file="laptop.png")
     myimage=Label(LHS,image=photo,bg='#f4f5f5')
     myimage.place(x=2,y=20)
@@ -98,14 +98,14 @@ def app():
     l6=Label(LHS,text=f'Processor:{my_system.processor}',bg='#f4f5f5',font=('Acumin Variable Concept',7),justify='center')
     l6.place(x=20,y=340)
 
-    #--------------------------------
+    
     RHS=Frame(Body,width=470,height=230,bg='#f4f5f5',highlightthickness=1)
     RHS.place(x=330,y=10)
 
     system=Label(RHS,text='System',bg='#f4f5f5',font=('Acumin Variable Concept',15))
     system.place(x=10,y=10)
 
-    ##Battery##
+    
 
     def convertTime(seconds):
         minutes, seconds = divmod(seconds, 60)
@@ -147,7 +147,7 @@ def app():
 
     none()
 
-    ##Speaker##
+    
 
     lbl_speaker=Label(RHS,text='Speaker:',font=('arial',10,'bold'),bg='#f4f5f5')
     lbl_speaker.place(x=10,y=150)
@@ -167,7 +167,7 @@ def app():
     volume.place(x=90,y=150)
     volume.set(20)
 
-    ##Brightness##
+    
     lbl_brightness=Label(RHS,text='Brightness:',font=('arial',10,'bold'),bg='#f4f5f5')
     lbl_brightness.place(x=10,y=190)
 
@@ -180,7 +180,7 @@ def app():
     brightness=ttk.Scale(RHS,from_=0,to=100,orient='horizontal',command=brightness_changed,variable=curent_value)
     brightness.place(x=90,y=190)
 
-    ##################################################
+    
 
     def weather():
         app1=Toplevel()
@@ -189,7 +189,7 @@ def app():
         app1.configure(background='#f4f5f5')
         app1.resizable(False,False)
 
-        #icon
+        
         image_icon=PhotoImage(file="App1.png")
         app1.iconphoto(False,image_icon)
 
@@ -208,7 +208,7 @@ def app():
                 clock.config(text=current_time)
                 name.config(text='CURRENT WEATHER')
 
-                #weather
+                
                 api='https://api.openweathermap.org/data/2.5/weather?q='+city+'&appid=1af9d0a1ae8b150014a7b8eaae3dbc33'
                 json_data=requests.get(api).json()
                 condition = json_data['weather'][0]['main']
@@ -228,7 +228,7 @@ def app():
             except Exception as e:
                 messagebox.showerror('Weather app','Invalid Entry!')
 
-        #search box
+        
         Search_image=PhotoImage(file="search.png")
         myimage=Label(app1,image=Search_image,bg='#f4f5f5')
         myimage.place(x=20,y=20)
@@ -241,23 +241,23 @@ def app():
         myimage_icon=Button(app1,image=search_icon,borderwidth=0,cursor='hand2',bg='#404040',command=getWeather)
         myimage_icon.place(x=400,y=35)
 
-        #logo
+        
         logo_image=PhotoImage(file="logo.png")
         logo=Label(app1,image=logo_image,bg='#f4f5f5')
         logo.place(x=150,y=100)
 
-        #bottom box
+        
         Frame_image=PhotoImage(file="box.png")
         fram_myimage=Label(app1,image=Frame_image,bg='#f4f5f5')
         fram_myimage.pack(padx=5,pady=5,side=BOTTOM)
 
-        #time
+        
         name=Label(app1,font=('arial',15,'bold'),bg='#f4f5f5')
         name.place(x=30,y=100)
         clock=Label(app1,font=('Helvetica',20),bg='#f4f5f5')
         clock.place(x=30,y=130)
 
-        #label
+        
         label1=Label(app1,text='WIND',font=('Helvetica',15,'bold'),fg='white',bg='#1ab5ef')
         label1.place(x=120,y=400)
 
@@ -292,7 +292,7 @@ def app():
         app2.configure(bg='#292e2e')
         app2.resizable(False,False)
 
-        #icon
+        
         image_icon=PhotoImage(file='App2.png')
         app2.iconphoto(False,image_icon)
 
@@ -313,7 +313,7 @@ def app():
         app3.configure(bg='#292e2e')
         app3.resizable(False,False)
 
-        #icon
+        
         image_icon=PhotoImage(file='App3.png')
         app3.iconphoto(False,image_icon)
 
@@ -321,7 +321,7 @@ def app():
         mycal.pack(padx=15,pady=35)
         app3.mainloop()
 
-    ##################Mode########################
+    
     global Dark_mode
     Dark_mode=True
     
@@ -380,7 +380,7 @@ def app():
             
             Dark_mode=True
 
-    ##############################################
+    
     def screenshot():
         root.iconify()
         myScreenshot=pyautogui.screenshot()
@@ -401,7 +401,7 @@ def app():
     def close_window():
         root.destroy()
 
-    #--------------------------------
+    
     RHB=Frame(Body,width=500,height=190,bg='#f4f5f5',highlightthickness=1)
     RHB.place(x=330,y=255)
 
