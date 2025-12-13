@@ -8,9 +8,3 @@
 ![](https://github-readme-stats.vercel.app/api?username=AkashRavindran2005&theme=dark&hide_border=false&include_all_commits=false&count_private=false)<br/>
 ![](https://nirzak-streak-stats.vercel.app/?user=AkashRavindran2005&theme=dark&hide_border=false)<br/>
 ![](https://github-readme-stats.vercel.app/api/top-langs/?username=AkashRavindran2005&theme=dark&hide_border=false&include_all_commits=false&count_private=false&layout=compact)
-# 📊 LeetCode Stats:
-![LeetCode Stats](https://leetcard.jacoblin.cool/Akash_Ravindran12?theme=dark&font=Roboto%20Flex)
-
----
-[![](https://visitcount.itsvg.in/api?id=AkashRavindran2005&icon=0&color=0)](https://visitcount.itsvg.in)
-
