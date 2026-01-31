@@ -10,7 +10,7 @@
 
 ---
 
-## Cybersecurity Toolkit
+## Skills
 
 <p align="center">
   <img src="https://skillicons.dev/icons?i=linux,python,js,html,css,react,flask,mysql,git,docker" />
