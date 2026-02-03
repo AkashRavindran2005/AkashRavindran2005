@@ -29,9 +29,7 @@
 ## GitHub Stats
 
 <p align="center">
-  <img src="https://nirzak-streak-stats.vercel.app/?user=AkashRavindran2005&theme=tokyonight&hide_border=true" />
-</p>
----
+<img src="https://github-readme-streak-stats-ten-peach.vercel.app?user=AkashRavindran2005&theme=tokyonight" alt="GitHub Streak" /></p>
 
 ## Connect
 
