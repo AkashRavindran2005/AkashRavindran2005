@@ -31,9 +31,6 @@
 <p align="center">
   <img src="https://nirzak-streak-stats.vercel.app/?user=AkashRavindran2005&theme=tokyonight&hide_border=true" />
 </p>
-<p align="center">
-  <img src="https://github-readme-activity-graph.vercel.app/graph?username=AkashRavindran2005&theme=github-compact&hide_border=true" />
-</p>
 ---
 
 ## Connect
